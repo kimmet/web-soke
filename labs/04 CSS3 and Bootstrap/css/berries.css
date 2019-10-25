@@ -1,0 +1,51 @@
+body {
+    font-family: Arial, Verdana, sans-serif;
+}
+
+body > * {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+h1 {
+    font-size: 6em;
+}
+
+h2 {
+    font-size: 2.5em;
+    margin: .5em 0 0 0;
+}
+
+.image_text {
+    font-weight: bold;
+    margin-bottom: 3em;
+}
+
+div > p {
+    margin: 0 0 1em 0;
+    font-style: italic;
+}
+
+div {
+    border: solid black;
+    border-width: 1px 0;
+    max-width: 20em;
+}
+
+img {
+    border: 2px solid lightblue;
+}
+
+.blue {
+    background-color: lightblue;
+}
+
+.beige {
+    background-color: wheat;
+}
+
+.red {
+    background-color: #b83f45;
+}
