@@ -4,6 +4,7 @@
 	This page demonstrates a form.
 	-->
 	<head>
+		<link href="form_style.css" type="text/css" rel="stylesheet" />
 		<meta charset="utf-8"/>
 		<title>Demonstrating HTML forms</title>
 	</head>
@@ -11,51 +12,72 @@
 	<body>
 		<h1>Turnitin</h1>
 		<form  lang="fi" action="">
-			<div>
-				Name: <input type="text" name="studentname"/>
-			</div>
-			<div>
-				Student id: <input type="text" name="id"  />
-			</div>
-			<div>
-				Email:
-				<!--
-				Make an input named "email"
-				-->
-			</div>
-			<div>
-				Assignment:
-				<!--
-				Make an input named "assignment"
-				-->
-				
-			</div>
+			<fieldset>
+				<legend>Info</legend>
+				<div>
+					Name: <input type="text" name="studentname" placeholder="John Doe"/>
+				</div>
+				<div>
+					Student id: <input type="text" onchange="this.setCustomValidity('')" oninvalid="this.setCustomValidity('Lütfen işaretli yerleri doldurunuz')" name="id" pattern="\d{7}" placeholder="0000000"/>
+				</div>
+				<div>
+					Email: <input type="text" name="email" onchange="this.setCustomValidity('')" oninvalid="this.setCustomValidity('Lütfen işaretli yerleri doldurunuz')" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" placeholder="example@domain.com" />
+					<!--
+					Make an input named "email"
+					-->
+				</div>
+			</fieldset>
+			<fieldset>
+				<legend>Stuff</legend>
+				<div>
+					Assignment:<input type="text" placeholder="uhh.. something" name="assignment"/>
+					<!--
+					Make an input named "assignment"
+					-->
 
-			<div>
-				Code:
+				</div>
+
+				<div>
+					Code: <textarea type="text" placeholder="paste your code here" name="code"></textarea>
+					<!--
+					Make an input named "code" which is a text area to put student's code into.
+					-->
+
+				</div>
+			</fieldset>
+			<fieldset>
+				<legend>Cheat</legend>
+				<div>
+					<label><input type="checkbox" name="cheat" required/>Cheat, yep yep</label>
 				<!--
-				Make an input named "code" which is a text area to put student's code into.
+					Make an input named "cheat" which is a check box the student must check.
 				-->
-				
-			</div>
-			<div>
-				Cheat:
-			<!--
-				Make an input named "cheat" which is a check box the student must check.
-			-->
-			</div>
-			<div>
-				Pay:
-			<!--
-				Make an input named "payment" which is a radio box with possible values of visa, paypal, mastercard
-			-->
-			</div>
-			<div>
-				Score:
-			<!--
-				Make an input named "score" which is a list of choices for the score 
-			-->
-			</div>
+				</div>
+				<div>
+						Payment method:
+						<label><input type="radio" name="payment" value="visa"/>Visa</label>
+						<label><input type="radio" name="payment" value="paypal"/>PayPal</label>
+						<label><input type="radio" name="payment" value="mastercard"/>MasterCard</label>
+				<!--
+					Make an input named "payment" which is a radio box with possible values of visa, paypal, mastercard
+				-->
+				</div>
+
+				<div>
+					Score:  <input list="scores" placeholder="5" onchange="this.setCustomValidity('')" pattern="\d{1}" name="scores" oninvalid="this.setCustomValidity('Lütfen işaretli yerleri doldurunuz')">
+
+					<datalist id="scores">
+						<option value="1">
+						<option value="2">
+						<option value="3">
+						<option value="4">
+						<option value="5">
+					</datalist>
+					<!--
+						Make an input named "score" which is a list of choices for the score
+					-->
+				</div>
+			</fieldset>
 			<input type="submit" />
 		</form>
 		<a href="http://jigsaw.w3.org/css-validator/check/referer">Validate</a>
