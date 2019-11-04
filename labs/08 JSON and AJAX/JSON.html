@@ -18,6 +18,26 @@ var fido2 = {
 var fidoString = JSON.stringify(fido2);
 console.log("We made a string from a dog! " + fidoString);
 
+var employee = {
+  name: { first: "Colin",
+    second: "Stephen" },
+  title: "Assistant Lecturer"
+};
+
+var myString = JSON.stringify(employee);
+
+var myObject = JSON.parse(myString);
+
+var employeeName = myObject.name;
+
+var myString2 = JSON.stringify(employeeName);
+
+window.onload = init;
+function init() {
+  dove = document.createElement("div");
+  document.body.appendChild(dove);
+  dove.innerText = myString2;
+}
   </script>
 </head>
 <body>

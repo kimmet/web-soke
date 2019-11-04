@@ -4,12 +4,25 @@
   <meta charset="utf-8">
   <title>Map Coordinates</title>
   <script>
-	window.onload = init;
-	function init() {
-		var map = document.getElementById("map");
-		map.onmousemove = showCoords;
-		var mydiv = document.getElementById("mydiv");
-		mydiv.onclick = addtext;
+    window.onload = init;
+    function init() {
+        var map = document.getElementById("map");
+        map.onmousemove = showCoords;
+        var mydiv = document.getElementById("mydiv");
+        mydiv.onclick = addtext;
+
+        var ul = document.createElement('ul');
+
+        document.body.appendChild(ul);
+
+        for (let i = 0; i < 3; i++){
+
+        var li=document.createElement('li');
+
+        ul.appendChild(li);
+        li.innerHTML=li.innerHTML + i;
+
+        }
 	}
 	
 	function showCoords(eventObj) {
@@ -21,13 +34,15 @@
 
 	function addtext(){
 		if (document.createTextNode){
-			var textToAdd = " Div was clicked! "
+			var textToAdd = " Div was clicked! ";
 			var newNode = document.createTextNode(textToAdd);
 			document.getElementById("mydiv").appendChild(newNode);
 		} else {
 			alert("Looks like you have an old browser!");
 		}
 	}
+
+
   </script>
 </head>
 <body>
