@@ -44,3 +44,27 @@ function init() {
     document.getElementById('theForm').onsubmit = addTask;
 } // End of init() function.
 window.onload = init;
+
+function removeDupes() {
+    let unique = [];
+    console.log("removing dupes");
+    for (let i = 0; i < tasks.length; i++) {
+        console.log(i);
+        if (unique.includes(tasks[i])) {
+            console.log("yeet that shit out of here");
+            tasks.splice(i, 1);
+            i--;
+        }
+        else {
+            unique.push(tasks[i]);
+        }
+    }
+    console.log(tasks);
+    console.log(unique);
+    message = '<h2>To-Do</h2><ol>';
+    for (var i = 0, count = tasks.length; i < count; i++) {
+        message += '<li>' + tasks[i] + '</li>';
+    }
+    message += '</ol>';
+    output.innerHTML = message;
+}
