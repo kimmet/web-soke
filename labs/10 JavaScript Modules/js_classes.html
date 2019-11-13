@@ -6,8 +6,8 @@
 <script>
 
 function Coffee(roast, ounces) {
-	this.roast = roast;
-	this.ounces = ounces;
+  this.roast = roast;
+  this.ounces = ounces;
 	this.getSize = function() {
 		if (this.ounces === 8) {
 			return "small";
@@ -31,6 +31,42 @@ function Coffee(roast, ounces) {
 		}
 		return msg;
 	};
+  this.sip = function() {
+    console.log("Hmm, tasty");
+  }
+}
+
+function  Tea(type, ounces) {
+  this.type = type;
+  this.ounces = ounces;
+
+  this.getSteepTime = function() {
+    if (this.ounces === 8) {
+      return "short";
+    } else if (this.ounces === 12) {
+      return "medium";
+    } else if (this.ounces === 16) {
+      return "long";
+    }
+  };
+  this.order = function() {
+    var msg;
+    switch (this.getSteepTime()) {
+      case "short":
+      case "medium":
+      case "long":
+        msg = "You've ordered a " + this.type + " tea.";
+        break;
+      default:
+        msg = "We don't have a " + this.roast + " in that size!";
+        break;
+    }
+    return msg;
+  };
+
+  this.sip = function() {
+    console.log("Hmm, tasty");
+  }
 }
 
 var coffee = new Coffee("House Blend", 12);
@@ -38,9 +74,14 @@ console.log(coffee.order());
 
 var darkRoast = new Coffee("Dark Roast", 16);
 console.log(darkRoast.order());
+darkRoast.sip();
 
 var specialBlend = new Coffee("Special Blend", 200);
 console.log(specialBlend.order());
+
+var lemonTea = new Tea("green lemon", 8);
+console.log(lemonTea.order());
+lemonTea.sip();
 
 </script>
 </head>

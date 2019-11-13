@@ -32,21 +32,36 @@ function handleClick() {
 //
 window.onload = function() {
 	var count = 0; 
-	var message = "You clicked me ";
-	var div = document.getElementById("message");
+	var message = "Playback speed: ";
+	var div = document.getElementById("playback-speed");
 
-	var button = document.getElementById("clickme");
-	button.onclick = function() {
+	var plus = document.getElementById("plus");
+	var minus = document.getElementById("minus");
+	var reset = document.getElementById("reset");
+	plus.onclick = function() {
 		count++;
-		div.innerHTML = message + count + " times!";
+		updateText();
 	};
+	minus.onclick = function() {
+		count--;
+		updateText();
+	};
+	reset.onclick = function() {
+		count = 0;
+		updateText();
+	};
+	function updateText() {
+		div.innerHTML = message + count;
+	}
 };
 
 </script> 
 </head> 
 <body>
-	<button id="clickme">Click me!</button>
-	<div id="message"></div>
+	<button id="plus">+</button>
+	<button id="reset">0</button>
+	<button id="minus">-</button>
+	<div id="playback-speed"></div>
 </body>
 </html>
 

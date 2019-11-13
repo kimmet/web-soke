@@ -8,6 +8,7 @@
 	 * @param {string} name The name of your new to do list.
 	 */
 	function Todo(name) {
+		this.$ = new app.$();
 		this.storage = new app.Store(name);
 		this.model = new app.Model(this.storage);
 		this.template = new app.Template();
@@ -22,4 +23,5 @@
 	}
 	$on(window, 'load', setView);
 	$on(window, 'hashchange', setView);
+	console.log(todo.$.id("clear-completed"));
 })();
